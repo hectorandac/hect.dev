@@ -7,6 +7,8 @@ import Menu from "./menu"
 
 const Logo = styled.img`
 width: 42px;
+height: 42px;
+margin: 0;
 `
 
 const Container = styled.div`
@@ -16,6 +18,9 @@ padding: 1.45rem;
 display: flex;
 flex-direction: row;
 justify-content: space-between;
+justify-items: center;
+align-items: center;
+
 `
 
 const Header = ({ siteTitle }) => {
@@ -25,6 +30,8 @@ const Header = ({ siteTitle }) => {
         marginBottom: `1.45rem`,
       }}
     >
+      <link rel="preconnect" href="https://fonts.gstatic.com"/>
+      <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400&display=swap" rel="stylesheet"/>
       <Container>
         <Logo src={logoFile}/>
         <Menu />
