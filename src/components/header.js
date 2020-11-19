@@ -20,6 +20,9 @@ flex-direction: row;
 justify-content: space-between;
 justify-items: center;
 align-items: center;
+position: fixed;
+width: 100%;
+backdrop-filter: blur(20px);
 
 `
 

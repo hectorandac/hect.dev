@@ -34,7 +34,7 @@ position: relative;
 
 const MobileMenu = styled.div`
 position: fixed;
-height: 100%;
+height: calc(100vh + 1.45rem);
 width: calc(100vw - 88px);
 right: calc((100vw - 88px) * ${props => props.hide ? -1 : 0} - 1.45rem);
 top: -1.45rem;
