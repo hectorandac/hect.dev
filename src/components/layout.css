@@ -23,6 +23,18 @@ body {
 }
 
 
+.global-icon-style {
+  margin: 0 4px;
+  transition: .5s;
+  cursor: pointer;
+}
+
+.global-icon-style:hover {
+  color: #FFC247 !important;
+  transform: translateY(-4px);
+}
+
+
 
 
 

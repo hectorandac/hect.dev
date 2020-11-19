@@ -12,6 +12,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import Header from "./header"
 import "./layout.css"
 import styled from "styled-components"
+import SocialBubble from "./socialBubble"
 
 const Container = styled.main`
 width: 100%;
@@ -46,6 +47,7 @@ const Layout = ({ children }) => {
             }}
           >
             {children}
+            <SocialBubble />
 
             <footer style={{
               marginTop: `2rem`
