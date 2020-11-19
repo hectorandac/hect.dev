@@ -21,9 +21,32 @@ cursor: pointer;
 }
 `
 
+const MobileMenuItem = styled(MenuItem)`
+    font-size: 18px;
+    margin-bottom: 16px;
+`
+
 const Container = styled.div`
-    display: flex;
-    flex-direction: row;
+display: flex;
+flex-direction: row;
+position: relative;
+`
+
+const MobileMenu = styled.div`
+position: absolute;
+height: 100vh;
+width: calc(100vw - 88px);
+right: calc((100vw - 88px) * ${props => props.hide ? -1 : 0} - 1.45rem);
+top: -1.45rem;
+z-index: 10;
+background-color: #0C3745;
+transition: .5s;
+padding-top: 94px;
+padding-left: 16px;
+`
+
+const MenuButton = styled.div`
+z-index: 20;
 `
 
 export default function Menu() {
@@ -36,8 +59,16 @@ export default function Menu() {
             <MenuItem label="02.">Experience</MenuItem>
             <MenuItem label="03.">Work</MenuItem>
             <MenuItem label="04.">Contact</MenuItem>
-
         </>}
-        {isTabletOrMobile && <Hamburger toggled={isActive} toggle={setActive} color="#FFC247"/>}
+        {isTabletOrMobile && <>
+            <MenuButton><Hamburger style={{zIndex: 20}} toggled={isActive} toggle={setActive} color="#FFC247"/></MenuButton>
+
+            <MobileMenu hide={!isActive}>
+                <MobileMenuItem label="01.">About</MobileMenuItem>
+                <MobileMenuItem label="02.">Experience</MobileMenuItem>
+                <MobileMenuItem label="03.">Work</MobileMenuItem>
+                <MobileMenuItem label="04.">Contact</MobileMenuItem>
+            </MobileMenu>
+        </>}
     </Container>
 }
