@@ -22,7 +22,8 @@ justify-items: center;
 align-items: center;
 position: fixed;
 width: 100%;
-backdrop-filter: blur(20px);
+backdrop-filter: blur(5px);
+background-color: rgba(9, 41, 52, 0.85);
 
 `
 
