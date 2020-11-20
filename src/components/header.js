@@ -24,23 +24,25 @@ position: fixed;
 width: 100%;
 backdrop-filter: blur(5px);
 background-color: rgba(9, 41, 52, 0.85);
+left: 0;
+right: 0;
+`
 
+const HeaderContainer = styled.header`
+margin-bottom: 1.45rem;
+width: 100%;
 `
 
 const Header = ({ siteTitle }) => {
   return (
-    <header
-      style={{
-        marginBottom: `1.45rem`,
-      }}
-    >
+    <HeaderContainer>
       <link rel="preconnect" href="https://fonts.gstatic.com"/>
       <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400&display=swap" rel="stylesheet"/>
       <Container>
         <Logo src={logoFile}/>
         <Menu />
       </Container>
-    </header>
+    </HeaderContainer>
   )
 }
 
