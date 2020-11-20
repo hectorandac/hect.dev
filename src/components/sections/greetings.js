@@ -65,7 +65,7 @@ export default function Greetings() {
         <Paragraph custom={3} initial="hidden" animate="visible" variants={variants} >
            I'm a software engineer residing in the Dominican Republic <sapn style={{color: 'white'}}>🏝</sapn>. 
            For the past {(new Date()).getFullYear() - 2014} years I've been creating all sorts of applications,
-           ranging from from complex backend solutions to beautifully designed websites.
+           ranging from complex backend solutions to beautifully designed websites.
         </Paragraph>
         <Button custom={4} initial="hidden" animate="visible" variants={variants} >
             CONTACT ME!
