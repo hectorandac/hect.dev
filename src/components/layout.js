@@ -41,21 +41,15 @@ const Layout = ({ children }) => {
           <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
           <div
             style={{
+              width: '100%',
               margin: `0 auto`,
+              marginTop: '116px',
               maxWidth: 960,
               padding: `0 1.0875rem 1.45rem`,
             }}
           >
             {children}
             <SocialBubble />
-
-            <footer style={{
-              marginTop: `2rem`
-            }}>
-              © {new Date().getFullYear()}, Built with
-              {` `}
-              <a href="https://www.gatsbyjs.com">Gatsby</a>
-            </footer>
           </div>
         </Container>
     </>

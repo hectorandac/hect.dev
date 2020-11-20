@@ -12,6 +12,7 @@ const Container = styled.div`
     backdrop-filter: brightness(1.5) blur(5px);
     display: flex;
     flex-direction: row;
+    z-index: 5;
 `
 
 export default function SocialBubble() {
