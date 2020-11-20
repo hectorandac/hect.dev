@@ -19,7 +19,7 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `gatsby-starter-default`,
-        short_name: `starter`,
+        short_name: `hect.dev`,
         start_url: `/`,
         background_color: `#092934`,
         theme_color: `#092934`,
