@@ -2,8 +2,9 @@ import { Squeeze as Hamburger } from 'hamburger-react'
 import React, { useState } from "react"
 import { useMediaQuery } from 'react-responsive'
 import styled from 'styled-components'
+import { motion } from "framer-motion"
 
-const MenuItem = styled.div`
+const MenuItem = styled(motion.div)`
 font-family: Inconsolata, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 color: #FFFAFF;
 margin: 0 12px;
@@ -53,12 +54,18 @@ export default function Menu() {
     const [isActive, setActive] = useState(false)
     const isTabletOrMobile = useMediaQuery({ query: '(max-width: 600px)' })
     const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 600px)' })
+
+    const item = {
+        visible: i => ({ opacity: 1, y: 0, transition: {delay: i * 0.5,}, }),
+        hidden: { opacity: 0, y: -10 },
+    }
+
     return <Container>
         {isDesktopOrLaptop && <>
-            <MenuItem label="01.">About</MenuItem>
-            <MenuItem label="02.">Experience</MenuItem>
-            <MenuItem label="03.">Work</MenuItem>
-            <MenuItem label="04.">Contact</MenuItem>
+            <MenuItem custom={0} initial="hidden" animate="visible" variants={item} label="01.">About</MenuItem>
+            <MenuItem custom={1} initial="hidden" animate="visible" variants={item} label="02.">Experience</MenuItem>
+            <MenuItem custom={2} initial="hidden" animate="visible" variants={item} label="03.">Work</MenuItem>
+            <MenuItem custom={3} initial="hidden" animate="visible" variants={item} label="04.">Contact</MenuItem>
         </>}
         {isTabletOrMobile && <>
             <MenuButton><Hamburger style={{zIndex: 20}} toggled={isActive} toggle={setActive} color="#FFC247"/></MenuButton>
