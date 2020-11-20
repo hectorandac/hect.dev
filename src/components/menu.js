@@ -6,7 +6,7 @@ import { motion } from "framer-motion"
 
 const MenuItem = styled(motion.div)`
 font-family: Inconsolata, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-color: #FFFAFF;
+color: #DCF1F9;
 margin: 0 12px;
 transition: .5s;
 cursor: pointer;
@@ -56,7 +56,7 @@ export default function Menu() {
     const isDesktopOrLaptop = useMediaQuery({ query: '(min-width: 600px)' })
 
     const item = {
-        visible: i => ({ opacity: 1, y: 0, transition: {delay: i * 0.5,}, }),
+        visible: i => ({ opacity: 1, y: 0, transition: {delay: i * 0.3} }),
         hidden: { opacity: 0, y: -10 },
     }
 

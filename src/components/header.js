@@ -4,7 +4,6 @@ import styled from "styled-components"
 import logoFile from "../images/logo.svg"
 import Menu from "./menu"
 
-
 const Logo = styled.img`
 width: 42px;
 height: 42px;
@@ -13,7 +12,6 @@ margin: 0;
 
 const Container = styled.div`
 margin: 0 auto;
-max-width: 960px;
 padding: 1.45rem;
 display: flex;
 flex-direction: row;
