@@ -1,5 +1,4 @@
 import React from "react"
-import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -40,16 +39,16 @@ const IndexPage = () => (
       <Greetings />
     </GreetingsSection>
     <Section>
-      <SectionTitle position='01.'>A little about me 🙆🏾‍♂️</SectionTitle>
+      <SectionTitle position='01.'>A little about me <span role="img" aria-label="Person">🙆🏾‍♂️</span></SectionTitle>
     </Section>
     <Section>
-      <SectionTitle position='02.'>Were I've been 🏢</SectionTitle>
+      <SectionTitle position='02.'>Were I've been <span role="img" aria-label="Building">🏢</span></SectionTitle>
     </Section>
     <Section>
-      <SectionTitle position='03.'>What I've done 🧑🏾‍💻</SectionTitle>
+      <SectionTitle position='03.'>What I've done <span role="img" aria-label="PC">🧑🏾‍💻</span></SectionTitle>
     </Section>
     <Section>
-      <SectionTitle position='04.'>Get in touch! 👋🏾</SectionTitle>
+      <SectionTitle position='04.'>Get in touch! <span role="img" aria-label="Hand">👋🏾</span></SectionTitle>
     </Section>
   </Layout>
 )
