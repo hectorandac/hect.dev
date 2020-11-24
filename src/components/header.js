@@ -28,6 +28,7 @@ right: 0;
 const HeaderContainer = styled.div`
 width: 100%;
 position: fixed;
+z-index: 10;
 box-shadow: 0px 1px 26px 0px rgba(0, 0, 0, 0.20);
 `
 

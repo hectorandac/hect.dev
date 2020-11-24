@@ -615,3 +615,8 @@ pre tt:after {
     font-size: 100%;
   }
 }
+
+a {
+  color: #FFC247;
+  text-decoration: none;
+}

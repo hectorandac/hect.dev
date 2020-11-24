@@ -44,7 +44,6 @@ text-decoration: none;
 background-color: transparent;
 cursor: pointer;
 transition: .5s;
-margin-bottom: 80px;
 :hover {
     background-color: #FFC24720;
 }
@@ -62,14 +61,14 @@ export default function Greetings() {
           },
         }),
         hidden: { opacity: 0, y: 100 },
-      }
+    }
 
     return <>
         <AccentText custom={0} initial="hidden" animate="visible" variants={variants} >Hi there, I am</AccentText>
         <Title custom={1} initial="hidden" animate="visible" variants={variants}  desktop={isDesktopOrLaptop}>Hector Acosta.</Title>
-        <SubTitle custom={2} initial="hidden" animate="visible" variants={variants}  desktop={isDesktopOrLaptop}>Full-Stack Developer</SubTitle>
+        <SubTitle custom={2} initial="hidden" animate="visible" variants={variants}  desktop={isDesktopOrLaptop}>Full-Stack Developer.</SubTitle>
         <Paragraph custom={3} initial="hidden" animate="visible" variants={variants} >
-           I'm a software engineer residing in the Dominican Republic <sapn style={{color: 'white'}}>🏝</sapn>. 
+           I'm a software engineer residing in the Dominican Republic <span role="img" aria-label="Island" style={{color: 'white'}}>🏝</span>. 
            For the past {(new Date()).getFullYear() - 2014} years I've been creating all sorts of applications,
            ranging from complex backend solutions to beautifully designed websites.
         </Paragraph>
