@@ -41,6 +41,9 @@ align-content: center;
 align-items: flex-start;
 margin-top: 94px !important;
 min-height: calc(100vh - 94px);
+@media only screen and (max-width: 600px) {
+  min-height: 80vh;
+}
 `
 
 const IndexPage = () => {
