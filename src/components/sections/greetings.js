@@ -5,7 +5,7 @@ import { motion } from "framer-motion"
 
 const Title = styled(motion.h1)`
 font-weight: 600;
-font-size: 72px;
+font-size: 96px;
 color: #DCF1F9;
 margin-bottom: 12px;
 @media only screen and (max-width: 600px) {
@@ -16,7 +16,7 @@ margin-bottom: 12px;
 const SubTitle = styled(motion.h2)`
 color: #DCF1F970;
 font-weight: 600;
-font-size: 56px;
+font-size: 72px;
 @media only screen and (max-width: 600px) {
     font-size: 32px;
 }

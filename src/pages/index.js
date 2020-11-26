@@ -6,6 +6,7 @@ import Section from "../components/section"
 import styled from "styled-components"
 import Greetings from "../components/sections/greetings"
 import AboutMe from "../components/sections/aboutMe"
+import Career from "../components/sections/career"
 
 const SectionTitle = styled.h2`
 color: #DCF1F9;
@@ -39,7 +40,7 @@ justify-items: center;
 align-content: center;
 align-items: flex-start;
 margin-top: 94px !important;
-min-height: calc(80vh);
+min-height: calc(100vh - 94px);
 `
 
 const IndexPage = () => {
@@ -54,7 +55,8 @@ const IndexPage = () => {
         <AboutMe/>
       </Section>
       <Section>
-        <SectionTitle position='02.'>Were I've been <span role="img" aria-label="Building">🏢</span></SectionTitle>
+        <SectionTitle position='02.'>Where I've been <span role="img" aria-label="Building">🏢</span></SectionTitle>
+        <Career />
       </Section>
       <Section>
         <SectionTitle position='03.'>What I've done <span role="img" aria-label="PC">🧑🏾‍💻</span></SectionTitle>

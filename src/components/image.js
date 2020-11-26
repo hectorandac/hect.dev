@@ -25,6 +25,10 @@ transition: .5s;
 :hover {
   filter: sepia(0%);
 }
+
+@media only screen and (max-width: 600px) {
+  margin-left: 0;
+}
 `
 
 const Image = () => {
