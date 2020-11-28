@@ -51,7 +51,7 @@ min-height: calc(100vh - 94px);
 const IndexPage = () => {
   return (
     <Layout>
-      <SEO title="Home" />
+      <SEO title="Hector A. Acosta" />
       <GreetingsSection>
         <Greetings />
       </GreetingsSection>

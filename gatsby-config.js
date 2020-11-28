@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `hect.dev`,
-    description: `Personal website`,
+    description: `I'm a software engineer residing in the Dominican Republic 🏝. For the past 6 years I've been creating all sorts of applications, ranging from complex backend solutions to beautifully designed websites.`,
     author: `@hectorandac`,
   },
   plugins: [

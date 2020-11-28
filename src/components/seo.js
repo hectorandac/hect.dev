@@ -53,6 +53,10 @@ function SEO({ description, lang, meta, title }) {
           content: `website`,
         },
         {
+          name: `og:image`,
+          content: `https://raw.githubusercontent.com/hectorandac/hect.dev/main/src/images/hector-acosta-small.jpg`
+        },
+        {
           name: `twitter:card`,
           content: `summary`,
         },
