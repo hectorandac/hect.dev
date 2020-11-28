@@ -87,7 +87,7 @@ export default function Work() {
                 ['pierpontglobal', 'pierpontglobal-frontend'],
                 ['hectorandac', 'bitpharma-api'],
                 ['hectorandac', 'hect.dev'],
-                ['hectorandac', 'Intec-Scrapping']
+                ['hectorandac', 'Intec-Scraping']
             ];
 
             const repoRawData = []
