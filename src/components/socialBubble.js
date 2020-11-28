@@ -1,5 +1,5 @@
-import React from "react"
-import styled from "styled-components"
+import React from "react";
+import styled from "styled-components";
 import { IconContext } from "react-icons";
 import { FaGithub, FaStackOverflow, FaLinkedinIn, FaInstagram, FaTwitter } from "react-icons/fa";
 import { motion } from "framer-motion"

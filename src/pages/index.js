@@ -7,6 +7,7 @@ import styled from "styled-components"
 import Greetings from "../components/sections/greetings"
 import AboutMe from "../components/sections/aboutMe"
 import Career from "../components/sections/career"
+import Work from "../components/sections/work"
 
 const SectionTitle = styled.h2`
 color: #DCF1F9;
@@ -63,6 +64,7 @@ const IndexPage = () => {
       </Section>
       <Section>
         <SectionTitle position='03.'>What I've done <span role="img" aria-label="PC">🧑🏾‍💻</span></SectionTitle>
+        <Work />
       </Section>
       <Section>
         <SectionTitle position='04.'>Get in touch! <span role="img" aria-label="Hand">👋🏾</span></SectionTitle>

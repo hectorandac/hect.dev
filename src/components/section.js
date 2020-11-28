@@ -12,6 +12,7 @@ justify-content: center;
 justify-items: center;
 align-content: center;
 align-items: flex-start;
+margin-bottom: 32px;
 `
 
 export default function Section({ children }) {
