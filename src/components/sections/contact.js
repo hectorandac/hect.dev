@@ -31,7 +31,7 @@ color: #FFC247;
 
 export default function Contact() {
     return <Container>
-        <Text>If you'd like to have a chat feel free to cotact me! I'll be available to answer any questions you might have about me.</Text>
+        <Text>If you'd like to have a chat feel free to contact me! I'll be available to answer any questions you might have about me.</Text>
         <AccentText>hector.acosta.pozo@gmail.com</AccentText>
         <IconsContainer>
             <IconContext.Provider value={{ color: "#FFC247", size: "32px", className: "global-icon-style-contact" }}>
