@@ -8,6 +8,7 @@ import Greetings from "../components/sections/greetings"
 import AboutMe from "../components/sections/aboutMe"
 import Career from "../components/sections/career"
 import Work from "../components/sections/work"
+import Contact from "../components/sections/contact"
 
 const SectionTitle = styled.h2`
 color: #DCF1F9;
@@ -67,8 +68,12 @@ const IndexPage = () => {
         <Work />
       </Section>
       <Section id="contact">
-        <SectionTitle position='04.'>Get in touch! <span role="img" aria-label="Hand">👋🏾</span></SectionTitle>
+        <SectionTitle style={{ textAlign: "center" }} position='04.'>Get in touch! <span role="img" aria-label="Hand">👋🏾</span></SectionTitle>
+        <Contact />
       </Section>
+      <p style={{ textAlign: 'center', width: '100%', color: '#DCF1F990', marginBottom: '48px', fontSize: '12px'}}>
+        Made with <span role="img" aria-label="heart">❤️</span> by hectorandac
+      </p>
     </Layout>
   )
 }
