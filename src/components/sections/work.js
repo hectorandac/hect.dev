@@ -105,7 +105,6 @@ export default function Work() {
             }
 
             setRepos(repoRawData);
-            console.log(repoRawData);
         }
         fetchData();
     }, [])

@@ -23,11 +23,11 @@ export default function SocialBubble() {
     }
     return <Container initial="hidden" animate="visible" variants={item}>
         <IconContext.Provider value={{ color: "#DCF1F9", size: "24px", className: "global-icon-style" }}>
-            <FaGithub/>
-            <FaStackOverflow/>
-            <FaLinkedinIn/>
-            <FaInstagram/>
-            <FaTwitter/>
+            <FaGithub onClick={() => window.open('https://github.com/hectorandac')}/>
+            <FaStackOverflow onClick={() => window.open('https://stackoverflow.com/users/10230161/hector-acosta?tab=profile')}/>
+            <FaLinkedinIn onClick={() => window.open('https://www.linkedin.com/in/hector-acosta-213388106/')}/>
+            <FaInstagram onClick={() => window.open('https://www.instagram.com/hectorandac/')}/>
+            <FaTwitter onClick={() => window.open('https://twitter.com/HectorAndAc')}/>
         </IconContext.Provider>
     </Container>
 }

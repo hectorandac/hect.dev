@@ -21,7 +21,8 @@ display: flex;
 flex-direction: column;
 overflow-x: hidden;
 overflow-y: auto;
-
+scroll-behavior: smooth;
+scroll-snap-type: y mandatory;
 `
 
 const Layout = ({ children }) => {
@@ -44,7 +45,7 @@ const Layout = ({ children }) => {
               width: '100%',
               margin: `0 auto`,
               maxWidth: 960,
-              padding: `0 1.0875rem 1.45rem`,
+              padding: `0 1.0875rem 1.45rem`
             }}
           >
             {children}

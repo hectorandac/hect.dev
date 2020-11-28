@@ -13,10 +13,11 @@ justify-items: center;
 align-content: center;
 align-items: flex-start;
 margin-bottom: 32px;
+scroll-margin-top: 94px;
 `
 
-export default function Section({ children }) {
-    return <Container>
+export default function Section({ id, children }) {
+    return <Container id={id}>
         { children }
     </Container>
 }

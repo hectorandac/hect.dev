@@ -3,6 +3,7 @@ import React, { useState } from "react"
 import { useMediaQuery } from 'react-responsive'
 import styled from 'styled-components'
 import { motion } from "framer-motion"
+import { Link } from 'gatsby'
 
 const MenuItem = styled(motion.div)`
 font-family: Inconsolata, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -62,19 +63,19 @@ export default function Menu() {
 
     return <Container>
         {isDesktopOrLaptop && <>
-            <MenuItem custom={0} initial="hidden" animate="visible" variants={item} label="01.">About</MenuItem>
-            <MenuItem custom={1} initial="hidden" animate="visible" variants={item} label="02.">Experience</MenuItem>
-            <MenuItem custom={2} initial="hidden" animate="visible" variants={item} label="03.">Work</MenuItem>
-            <MenuItem custom={3} initial="hidden" animate="visible" variants={item} label="04.">Contact</MenuItem>
+            <Link href="#about"><MenuItem custom={0} initial="hidden" animate="visible" variants={item} label="01.">About</MenuItem></Link>
+            <Link href="#experience"><MenuItem custom={1} initial="hidden" animate="visible" variants={item} label="02.">Experience</MenuItem></Link>
+            <Link href="#work"><MenuItem custom={2} initial="hidden" animate="visible" variants={item} label="03.">Work</MenuItem></Link>
+            <Link href="#contact"><MenuItem custom={3} initial="hidden" animate="visible" variants={item} label="04.">Contact</MenuItem></Link>
         </>}
         {isTabletOrMobile && <>
             <MenuButton><Hamburger style={{zIndex: 20}} toggled={isActive} toggle={setActive} color="#FFC247"/></MenuButton>
 
             <MobileMenu hide={!isActive}>
-                <MobileMenuItem label="01.">About</MobileMenuItem>
-                <MobileMenuItem label="02.">Experience</MobileMenuItem>
-                <MobileMenuItem label="03.">Work</MobileMenuItem>
-                <MobileMenuItem label="04.">Contact</MobileMenuItem>
+                <Link href="#about"><MobileMenuItem onClick={() => setActive(false)} label="01.">About</MobileMenuItem></Link>
+                <Link href="#experience"><MobileMenuItem onClick={() => setActive(false)} label="02.">Experience</MobileMenuItem></Link>
+                <Link href="#work"><MobileMenuItem onClick={() => setActive(false)} label="03.">Work</MobileMenuItem></Link>
+                <Link href="#contact"><MobileMenuItem onClick={() => setActive(false)} label="04.">Contact</MobileMenuItem></Link>
             </MobileMenu>
         </>}
     </Container>

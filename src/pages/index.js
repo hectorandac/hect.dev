@@ -54,19 +54,19 @@ const IndexPage = () => {
       <GreetingsSection>
         <Greetings />
       </GreetingsSection>
-      <Section>
+      <Section id="about">
         <SectionTitle position='01.'>About me <span role="img" aria-label="Person">🙆🏾‍♂️</span></SectionTitle>
         <AboutMe/>
       </Section>
-      <Section>
+      <Section id="experience">
         <SectionTitle position='02.'>Where I've been <span role="img" aria-label="Building">🏢</span></SectionTitle>
         <Career />
       </Section>
-      <Section>
+      <Section id="work">
         <SectionTitle position='03.'>What I've done <span role="img" aria-label="PC">🧑🏾‍💻</span></SectionTitle>
         <Work />
       </Section>
-      <Section>
+      <Section id="contact">
         <SectionTitle position='04.'>Get in touch! <span role="img" aria-label="Hand">👋🏾</span></SectionTitle>
       </Section>
     </Layout>

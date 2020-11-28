@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { useMediaQuery } from 'react-responsive'
 import { motion } from "framer-motion"
+import { Link } from 'gatsby'
 
 const Title = styled(motion.h1)`
 font-weight: 600;
@@ -72,8 +73,10 @@ export default function Greetings() {
            For the past {(new Date()).getFullYear() - 2014} years I've been creating all sorts of applications,
            ranging from complex backend solutions to beautifully designed websites.
         </Paragraph>
-        <Button custom={4} initial="hidden" animate="visible" variants={variants} >
-            CONTACT ME!
-        </Button>
+        <Link href="#contact">
+            <Button custom={4} initial="hidden" animate="visible" variants={variants} >
+                CONTACT ME!
+            </Button>
+        </Link>
     </>
 }
