@@ -20,6 +20,7 @@ display: flex;
 flex-direction: column;
 overflow-x: hidden;
 overflow-y: auto;
+scroll-behavior: smooth;
 `
 
 const Layout = ({ children }) => {
