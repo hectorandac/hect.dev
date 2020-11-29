@@ -20,8 +20,6 @@ display: flex;
 flex-direction: column;
 overflow-x: hidden;
 overflow-y: auto;
-scroll-behavior: smooth;
-scroll-snap-type: y mandatory;
 `
 
 const Layout = ({ children }) => {
