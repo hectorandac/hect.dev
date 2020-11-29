@@ -5,6 +5,8 @@ html {
   box-sizing: border-box;
   overflow-y: scroll;
   background: #092934;
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
 }
 body {
   margin: 0;
