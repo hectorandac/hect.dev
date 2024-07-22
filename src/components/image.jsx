@@ -1,7 +1,7 @@
-import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
-import Img from "gatsby-image"
-import styled from "styled-components"
+import React from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
+import Img from 'gatsby-image';
+import styled from 'styled-components';
 
 /*
  * This component is built using `gatsby-image` to automatically serve optimized
@@ -15,23 +15,23 @@ import styled from "styled-components"
  */
 
 const ImageCTT = styled(Img)`
-position: relative;
-width: 100%;
-border-radius: 16px;
-margin-left: 24px;
-z-index: 5;
-filter: sepia(100%);
-transition: .5s;
-:hover {
-  filter: sepia(0%);
-}
+  position: relative;
+  width: 100%;
+  border-radius: 16px;
+  margin-left: 24px;
+  z-index: 5;
+  filter: sepia(100%);
+  transition: 0.5s;
+  &:hover {
+    filter: sepia(0%);
+  }
 
-@media only screen and (max-width: 600px) {
-  margin-left: 0;
-}
-`
+  @media only screen and (max-width: 600px) {
+    margin-left: 0;
+  }
+`;
 
-const Image = () => {
+function Image() {
   const data = useStaticQuery(graphql`
     query {
       placeholderImage: file(relativePath: { eq: "hector-acosta.jpg" }) {
@@ -42,13 +42,15 @@ const Image = () => {
         }
       }
     }
-  `)
+  `);
 
-  if (!data?.placeholderImage?.childImageSharp?.fluid) {
-    return <div>Picture not found</div>
+  if (!data || !data.placeholderImage
+     || !data.placeholderImage.childImageSharp
+     || !data.placeholderImage.childImageSharp.fluid) {
+    return <div>Picture not found</div>;
   }
 
-  return <ImageCTT fluid={data.placeholderImage.childImageSharp.fluid} />
+  return <ImageCTT fluid={data.placeholderImage.childImageSharp.fluid} />;
 }
 
-export default Image
+export default Image;
