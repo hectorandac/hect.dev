@@ -64,13 +64,30 @@ const ButtonArray = styled.div`
   right: 0;
   padding: 12px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+
+  &.single-button {
+    justify-content: flex-end;
+  }
 `;
 
 const AccentText = styled.div`
   margin-top: 4px;
   margin-bottom: 4px;
   color: #FFC247;
+`;
+
+const PreviewButton = styled.button`
+  background-color: #FFC247;
+  border: none;
+  border-radius: 4px;
+  color: #0C3745;
+  padding: 2px 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  &:hover {
+    background-color: #ffdb70;
+  }
 `;
 
 export default function Work() {
@@ -80,6 +97,7 @@ export default function Work() {
       const octokit = new Octokit({ auth: process.env.PRIVATE_KEY });
 
       const reposData = [
+        ['hectorandac', 'Rock-Paper-Scissor-AI-Game'],
         ['pierpontglobal', 'pierpontglobal-api'],
         ['pierpontglobal', 'pierpontglobal-frontend'],
         ['hectorandac', 'bitpharma-api'],
@@ -122,7 +140,12 @@ export default function Work() {
             {repo.language}
           </AccentText>
           <Text>{repo.description}</Text>
-          <ButtonArray>
+          <ButtonArray className={repo.homepage ? '' : 'single-button'}>
+            {repo.homepage && (
+            <PreviewButton onClick={() => window.open(repo.homepage)}>
+              Preview the Project
+            </PreviewButton>
+            )}
             <IconContext.Provider value={iconContextValue}>
               <FaGithub onClick={() => { window.open(repo.html_url); }} />
             </IconContext.Provider>
