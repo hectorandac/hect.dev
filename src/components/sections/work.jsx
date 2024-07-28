@@ -83,6 +83,7 @@ const PreviewButton = styled.button`
   border-radius: 4px;
   color: #0C3745;
   padding: 2px 4px;
+  font-size: 12px;
   cursor: pointer;
   transition: background-color 0.3s;
   &:hover {
