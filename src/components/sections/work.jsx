@@ -98,6 +98,7 @@ export default function Work() {
       const octokit = new Octokit({ auth: process.env.PRIVATE_KEY });
 
       const reposData = [
+        ['hectorandac', 'CRAFT-Line-Extractor'],
         ['hectorandac', 'Rock-Paper-Scissor-AI-Game'],
         ['pierpontglobal', 'pierpontglobal-api'],
         ['pierpontglobal', 'pierpontglobal-frontend'],
@@ -129,7 +130,7 @@ export default function Work() {
 
   return (
     <Projects>
-      {repos.slice(0, 6).map((repo) => (
+      {repos.slice(0, 9).map((repo) => (
         <ProjectContainer key={repo.id}>
           <RiGitRepositoryFill color="#FFC247" size="24px" style={{ position: 'absolute', marginTop: '2px' }} />
           {' '}
