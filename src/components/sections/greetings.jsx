@@ -17,7 +17,7 @@ margin-bottom: 12px;
 const SubTitle = styled(motion.h2)`
 color: #DCF1F970;
 font-weight: 600;
-font-size: 72px;
+font-size: 58px;
 @media only screen and (max-width: 600px) {
     font-size: 32px;
 }
@@ -68,7 +68,9 @@ export default function Greetings() {
     <>
       <AccentText custom={0} initial="hidden" animate="visible" variants={variants}>Hi there, I am</AccentText>
       <Title custom={1} initial="hidden" animate="visible" variants={variants} desktop={isDesktopOrLaptop}>Hector Acosta.</Title>
-      <SubTitle custom={2} initial="hidden" animate="visible" variants={variants} desktop={isDesktopOrLaptop}>Full-Stack Developer.</SubTitle>
+      <SubTitle custom={2} initial="hidden" animate="visible" variants={variants} desktop={isDesktopOrLaptop}>
+        Full-Stack Developer & AI R&amp;D Engineer.
+      </SubTitle>
       <Paragraph custom={3} initial="hidden" animate="visible" variants={variants}>
         I&apos;m a software engineer residing in South Korea
         {' '}

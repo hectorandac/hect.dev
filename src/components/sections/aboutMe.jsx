@@ -6,6 +6,7 @@ import {
   SiDocker,
   SiAmazonaws,
   SiKubernetes, SiDotNet, SiSpring, SiReact, SiTensorflow, SiGooglecloud, SiFlask, SiGithub,
+  SiPytorch,
 } from 'react-icons/si';
 import { IconContext } from 'react-icons';
 import {
@@ -78,12 +79,20 @@ export default function AboutMe() {
     <Container>
       <TextContainer>
         <p>
-          I&apos;m a dedicated software engineer with over
+          I&apos;m a software engineer with over
           {' '}
           {experienceYears}
           {' '}
-          years of experience in
-          backend and frontend development. I&apos;ve graduated from
+          years of experience building full-stack products and rugged backend systems.
+          I completed my Master&apos;s in Computer Science at
+          {' '}
+          <a href="https://www.knu.ac.kr">Kyungpook National University</a>
+          {' '}
+          in South Korea
+          {' '}
+          <span role="img" aria-label="KO" style={{ color: 'white' }}>🇰🇷</span>
+          {' '}
+          after studying at
           {' '}
           <a href="https://www.intec.edu.do/">INTEC University</a>
           {' '}
@@ -91,37 +100,32 @@ export default function AboutMe() {
           {' '}
           <span role="img" aria-label="DR" style={{ color: 'white' }}>🇩🇴</span>
           {' '}
-          and also studied at
+          and
           {' '}
           <a href="https://eng.sejong.ac.kr/index.do">Sejong University</a>
-          {' '}
-          in South Korea
-          {' '}
-          <span role="img" aria-label="KO" style={{ color: 'white' }}>🇰🇷</span>
-          . I am currently finishing my Master&apos;s Degree in Computer Science at
-          {' '}
-          <a href="https://www.knu.ac.kr">Kyungpook National University</a>
-          {' '}
-          with a focus on Artificial Intelligence, expected to graduate in August 2024.
+          .
         </p>
 
+        <p>
+          My work bridges full-stack engineering and applied AI, from React-driven product
+          development to ML tooling and real-time inference pipelines using TensorFlow and PyTorch.
+        </p>
+        <p>
+          Rails remains my go-to backend framework, and lately I&apos;ve doubled down on modern AI
+          systems, model deployment, and performance-focused engineering.
+        </p>
         <p>These are some of the technologies I&apos;ve been working with:</p>
         <CodeList>
           <IconContext.Provider value={goldIconContextValue}>
             <Code>
-              <DiRuby />
+              <SiTensorflow />
               {' '}
-              Ruby
+              TensorFlow
             </Code>
             <Code>
-              <SiJava />
+              <SiPytorch />
               {' '}
-              Java
-            </Code>
-            <Code>
-              <DiJavascript1 />
-              {' '}
-              JavaScript
+              PyTorch
             </Code>
             <Code>
               <DiPython />
@@ -129,16 +133,36 @@ export default function AboutMe() {
               Python
             </Code>
             <Code>
-              <DiVisualstudio />
+              <SiReact />
               {' '}
-              C#
+              React
             </Code>
-          </IconContext.Provider>
-          <IconContext.Provider value={silverIconContextValue}>
             <Code>
               <SiRails />
               {' '}
               Rails
+            </Code>
+            <Code>
+              <DiRuby />
+              {' '}
+              Ruby
+            </Code>
+            <Code>
+              <DiJavascript1 />
+              {' '}
+              JavaScript
+            </Code>
+            <Code>
+              <SiJava />
+              {' '}
+              Java
+            </Code>
+          </IconContext.Provider>
+          <IconContext.Provider value={silverIconContextValue}>
+            <Code>
+              <DiVisualstudio />
+              {' '}
+              C#
             </Code>
             <Code>
               <SiDotNet />
@@ -149,16 +173,6 @@ export default function AboutMe() {
               <SiSpring />
               {' '}
               Spring
-            </Code>
-            <Code>
-              <SiReact />
-              {' '}
-              React
-            </Code>
-            <Code>
-              <SiTensorflow />
-              {' '}
-              TensorFlow
             </Code>
             <Code>
               <SiGooglecloud />

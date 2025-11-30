@@ -1,9 +1,33 @@
-import React, { useMemo } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { RiCarFill, RiMessage3Fill } from 'react-icons/ri';
 import styled from 'styled-components';
-import { IconContext } from 'react-icons';
 import { useMediaQuery } from 'react-responsive';
+import aicuLogo from '../../images/aicu.jpeg';
+import betterupLogo from '../../images/betterup.png';
+import kaleyraLogo from '../../images/kaleyra.jpeg';
+import pierpontLogo from '../../images/pierpont.jpeg';
+
+const formatDuration = (startDate, endDate = new Date()) => {
+  const start = new Date(startDate.getFullYear(), startDate.getMonth(), 1);
+  const end = new Date(endDate.getFullYear(), endDate.getMonth(), 1);
+  let totalMonths = (
+    (end.getFullYear() - start.getFullYear()) * 12
+    + (end.getMonth() - start.getMonth())
+  );
+  if (totalMonths < 0) totalMonths = 0;
+  const years = Math.floor(totalMonths / 12);
+  const months = totalMonths % 12;
+  const parts = [];
+  if (years > 0) {
+    parts.push(`${years} ${years === 1 ? 'year' : 'years'}`);
+  }
+  if (months > 0) {
+    parts.push(`${months} ${months === 1 ? 'month' : 'months'}`);
+  }
+  return parts.length ? parts.join(' ') : 'Less than 1 month';
+};
+
+const AICU_START_DATE = new Date(2024, 10, 1);
 
 const EventContainer = styled.div`
   width: 100%;
@@ -33,26 +57,36 @@ const EventContainer = styled.div`
 `;
 
 const EventIcon = styled.div`
-  width: 40px;
-  height: 40px;
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
   position: absolute;
   margin: 0 auto;
   top: 0;
   left: 0;
   right: 0;
-  background-color: #ffc247;
+  background-color: #fff;
   display: flex;
   justify-content: center;
   justify-items: center;
   align-content: center;
   align-items: center;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
 
   @media only screen and (max-width: 600px) {
     right: auto;
     left: -18px;
     margin: auto;
   }
+`;
+
+const LogoImage = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  margin: 0;
+  display: block;
 `;
 
 const EventContent = styled.div`
@@ -122,21 +156,35 @@ const AccentText = styled.p`
   margin-bottom: 0;
 `;
 
+const DurationText = styled.p`
+  color: #bfdae3;
+  margin: 0;
+  font-size: 0.85rem;
+`;
+
 function Event({
-  phoneView, title, description, icon, date, left, positions,
+  phoneView, title, description, logo, date, duration, left, positions,
 }) {
   return (
     <EventContainer left={left}>
-      <EventIcon>{icon}</EventIcon>
+      <EventIcon>
+        <LogoImage src={logo} alt={`${title} logo`} />
+      </EventIcon>
       <EventContent left={left}>
         <Title>{title}</Title>
         <Paragraph>{description}</Paragraph>
-        {phoneView && <DateText>{date}</DateText>}
-        {phoneView && <AccentText>{positions}</AccentText>}
+        {phoneView && (
+          <>
+            <DateText>{date}</DateText>
+            <DurationText>{duration}</DurationText>
+            <AccentText>{positions}</AccentText>
+          </>
+        )}
       </EventContent>
       {!phoneView && (
         <EventDate left={left}>
           <DateText>{date}</DateText>
+          <DurationText>{duration}</DurationText>
           <AccentText>{positions}</AccentText>
         </EventDate>
       )}
@@ -148,28 +196,40 @@ Event.propTypes = {
   phoneView: PropTypes.bool.isRequired,
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  icon: PropTypes.node.isRequired,
+  logo: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
+  duration: PropTypes.string.isRequired,
   left: PropTypes.bool.isRequired,
   positions: PropTypes.string.isRequired,
 };
 
 export default function Career() {
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 600px)' });
+  const [aicuDuration, setAicuDuration] = useState(() => formatDuration(AICU_START_DATE));
 
-  const iconContextValue = useMemo(() => ({
-    color: '#0C3745',
-    size: '24px',
-  }), []);
+  useEffect(() => {
+    setAicuDuration(formatDuration(AICU_START_DATE));
+  }, []);
 
   return (
-    <IconContext.Provider value={iconContextValue}>
+    <>
+      <Event
+        phoneView={isTabletOrMobile}
+        title="AICU.life"
+        description="I lead the AICU Gait Scanner, designing computer vision models and delivering fully optimized edge inference builds. That means owning everything from training to shipping Android and iOS native experiences with Core ML OCR stacks and CUDA/C++ accelerators so clinicians get real-time gait analytics in the field. I also bridge the on-device stack with our Python and Ruby on Rails services for regulatory-ready rollouts."
+        logo={aicuLogo}
+        date="Nov 2024 - Present"
+        duration={aicuDuration}
+        left={false}
+        positions="Machine Learning Researcher"
+      />
       <Event
         phoneView={isTabletOrMobile}
         title="BetterUp"
         description="At BetterUp, a top-tier US coaching platform, I worked as a Ruby on Rails and JavaScript software engineer part-time contractor. I played a significant role in internal integration tools connecting with third-party platforms like Microsoft Teams, Slack, and other lesser-known platforms. I also helped create their alternative payment platform known as 'Microsites' which handled thousands of transactions for their partners."
-        icon={<RiMessage3Fill />}
-        date="Sep 2021 - Sep 2022"
+        logo={betterupLogo}
+        date="Sep 2021 - May 2025"
+        duration="3 years 8 months"
         left
         positions="Software Developer Contractor"
       />
@@ -177,8 +237,9 @@ export default function Career() {
         phoneView={isTabletOrMobile}
         title="Kaleyra (formerly mGage)"
         description="At Kaleyra, a global campaign messaging solution provider, I worked as a Full Stack Software Developer using Java, Ruby on Rails, Golang, and PHP. Initially, at mGage, I designed a multimedia transcoding system and developed high-throughput messaging applications. After mGage was acquired by Kaleyra, I continued my tenure remotely, maintaining scalable applications and refining the microservices architecture by transitioning PHP monoliths to multithreaded Golang applications."
-        icon={<RiMessage3Fill />}
+        logo={kaleyraLogo}
         date="Sep 2019 - Sep 2022"
+        duration="3 years"
         left={false}
         positions="Software Engineer Specialist"
       />
@@ -186,11 +247,12 @@ export default function Career() {
         phoneView={isTabletOrMobile}
         title="Pierpont Global, Inc"
         description="Pierpont Global, a startup company I helped create, served as an online car auctioning platform. I worked as a Full Stack Software Developer and lead developer of this venture. Primarily using Ruby on Rails, JavaScript, and Java, my main responsibility was to manage and work with a small team of 4 developers towards the creation of the whole ecosystem of this startup. Unfortunately, the project did not continue after 1 year. I still own the source code."
-        icon={<RiCarFill />}
+        logo={pierpontLogo}
         date="Nov 2018 - Nov 2019"
+        duration="1 year"
         left
         positions="Lead Software Developer"
       />
-    </IconContext.Provider>
+    </>
   );
 }
