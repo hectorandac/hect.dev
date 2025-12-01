@@ -15,7 +15,7 @@ color: #DCF1F9;
 width: 100%;
 ::before {
   content: '${(props) => props.position}';
-  color: #FFC247;
+  color: #FFC248;
   margin-right: 12px;
   font-family: Inconsolata,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen,Ubuntu,Cantarell,'Open Sans','Helvetica Neue',sans-serif;
   font-weight: 400;
