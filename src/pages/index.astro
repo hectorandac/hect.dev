@@ -1,0 +1,176 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import portrait from '../assets/portrait.jpg';
+import { person, experience, research, projects, skills, education } from '../data/profile';
+---
+<Base>
+  <Header />
+  <main id="main">
+    <div class="wrap hero">
+      <div class="hero-text">
+        <p class="eyebrow">{person.location}</p>
+        <h1>{person.shortName}</h1>
+        <p class="role">{person.role}</p>
+        <p class="lede">{person.summary}</p>
+        <p class="muted">{person.years}. MSc Computer Science, Kyungpook National University.</p>
+        <div class="cta">
+          <a class="btn primary" href="/resume">Resume</a>
+          <a class="btn" href={person.links.github} rel="me">GitHub</a>
+          <a class="btn" href={person.links.linkedin} rel="me">LinkedIn</a>
+          <a class="btn" href={`mailto:${person.email}`}>Email</a>
+        </div>
+      </div>
+      <figure class="portrait">
+        <Image src={portrait} alt="Portrait of Hector Acosta" width={560} widths={[280, 420, 560]} sizes="(max-width: 760px) 60vw, 280px" loading="eager" fetchpriority="high" />
+        <span class="frame" aria-hidden="true"></span>
+      </figure>
+    </div>
+
+    <section id="experience">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Experience</p>
+          <h2>Where I've worked</h2>
+        </div>
+        <ol class="timeline">
+          {experience.map((job) => (
+            <li class="job">
+              <div class="job-meta">
+                <span class="mono muted">{job.period}</span>
+              </div>
+              <div class="job-body">
+                <h3>{job.url ? <a href={job.url}>{job.org}</a> : job.org}</h3>
+                <p class="job-role">{job.role}</p>
+                <ul>{job.points.map((p) => <li>{p}</li>)}</ul>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+
+    <section id="research">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Research</p>
+          <h2>Efficient detection for fixed cameras and edge devices</h2>
+        </div>
+        <div class="grid">
+          {research.map((r) => (
+            <article class="card">
+              <p class="eyebrow">{r.kind}</p>
+              <h3>{r.title}</h3>
+              <p>{r.text}</p>
+              <a class="more" href={r.url}>{r.linkLabel} →</a>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Projects</p>
+          <h2>Things I build and run</h2>
+          <p class="muted">Everything here runs on my own k3s cluster: Helm charts, GPU inference with Ollama, VictoriaMetrics and Grafana alerting.</p>
+        </div>
+        <div class="grid">
+          {projects.map((p) => (
+            <article class="card">
+              <h3>{p.name}</h3>
+              <p>{p.text}</p>
+              <ul class="tags">{p.stack.map((s) => <li>{s}</li>)}</ul>
+              <p class="links">
+                <a href={p.repo}>Source</a>
+                {p.demo && <a href={p.demo}>Live demo</a>}
+              </p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Toolbox</p>
+          <h2>What I work with</h2>
+        </div>
+        <div class="skills">
+          {skills.map((g) => (
+            <div>
+              <h3>{g.group}</h3>
+              <ul class="tags">{g.items.map((s) => <li>{s}</li>)}</ul>
+            </div>
+          ))}
+        </div>
+        <div class="edu">
+          {education.map((e) => (
+            <p><a href={e.url}>{e.school}</a> <span class="muted">· {e.degree} · {e.place}</span></p>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap contact">
+        <h2>Open to ML engineering and research roles in the US.</h2>
+        <p class="muted">The fastest way to reach me is email.</p>
+        <div class="cta">
+          <a class="btn primary" href={`mailto:${person.email}`}>{person.email}</a>
+          <a class="btn" href="/resume.pdf">Download resume (PDF)</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Base>
+
+<style>
+  .hero { display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: center; padding-top: clamp(40px, 8vw, 96px); padding-bottom: clamp(56px, 9vw, 96px); }
+  .hero-text { display: flex; flex-direction: column; gap: 16px; max-width: 640px; }
+  .role { font: 500 clamp(18px, 2.4vw, 22px)/1.3 var(--sans); color: var(--accent); letter-spacing: -0.01em; }
+  .lede { font-size: clamp(17px, 2vw, 19px); color: var(--ink-muted); }
+  .cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 8px; }
+  .portrait { position: relative; margin: 0; width: 280px; }
+  .portrait :global(img) { border-radius: var(--radius); aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 20%; filter: saturate(.9); }
+  .frame { position: absolute; inset: -10px; pointer-events: none;
+    background:
+      linear-gradient(var(--accent), var(--accent)) top left / 28px 3px,
+      linear-gradient(var(--accent), var(--accent)) top left / 3px 28px,
+      linear-gradient(var(--accent), var(--accent)) top right / 28px 3px,
+      linear-gradient(var(--accent), var(--accent)) top right / 3px 28px,
+      linear-gradient(var(--accent), var(--accent)) bottom left / 28px 3px,
+      linear-gradient(var(--accent), var(--accent)) bottom left / 3px 28px,
+      linear-gradient(var(--accent), var(--accent)) bottom right / 28px 3px,
+      linear-gradient(var(--accent), var(--accent)) bottom right / 3px 28px;
+    background-repeat: no-repeat; }
+
+  .timeline { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+  .job { display: grid; grid-template-columns: 180px 1fr; gap: 24px; padding: 24px 0; border-top: 1px solid var(--hairline); }
+  .job:first-child { border-top: 0; padding-top: 0; }
+  .job-role { color: var(--ink-subtle); margin: 4px 0 10px; }
+  .job ul { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px; }
+
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+  .grid .card { display: flex; flex-direction: column; gap: 12px; }
+  .grid .card p:not(.eyebrow):not(.links) { flex: 1; }
+  .more, .links a { font-size: 14px; }
+  .links { display: flex; gap: 16px; }
+
+  .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; }
+  .skills h3 { margin-bottom: 12px; font-size: 15px; }
+  .edu { margin-top: 40px; display: flex; flex-direction: column; gap: 6px; }
+
+  .contact { display: flex; flex-direction: column; gap: 14px; align-items: flex-start; }
+
+  @media (max-width: 760px) {
+    .hero { grid-template-columns: 1fr; gap: 32px; }
+    .portrait { width: min(60vw, 260px); order: -1; margin-left: 10px; }
+    .job { grid-template-columns: 1fr; gap: 6px; }
+  }
+</style>

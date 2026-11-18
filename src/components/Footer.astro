@@ -1,0 +1,16 @@
+---
+import { person } from '../data/profile';
+---
+<footer class="wrap foot">
+  <p class="muted">© {new Date().getFullYear()} {person.name}</p>
+  <p class="links">
+    <a href={person.links.github} rel="me">GitHub</a>
+    <a href={person.links.linkedin} rel="me">LinkedIn</a>
+    <a href={person.links.orcid} rel="me">ORCID</a>
+  </p>
+</footer>
+
+<style>
+  .foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; padding-top: 32px; padding-bottom: 48px; border-top: 1px solid var(--hairline); font-size: 14px; }
+  .links { display: flex; gap: 16px; }
+</style>

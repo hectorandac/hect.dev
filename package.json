@@ -1,63 +1,21 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "hect.dev",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
-  "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "render": "node scripts/render.mjs"
+  },
   "dependencies": {
-    "@octokit/rest": "^18.0.9",
-    "babel-plugin-styled-components": "^1.12.0",
-    "dotenv": "^16.4.5",
-    "framer-motion": "^2.9.4",
-    "gatsby": "^5.15.0",
-    "gatsby-adapter-netlify": "^1.2.1",
-    "gatsby-image": "^2.4.21",
-    "gatsby-plugin-manifest": "^5.15.0",
-    "gatsby-plugin-offline": "^3.2.38",
-    "gatsby-plugin-react-helmet": "^6.15.0",
-    "gatsby-plugin-sharp": "^5.15.0",
-    "gatsby-plugin-styled-components": "^6.15.0",
-    "gatsby-source-filesystem": "^5.15.0",
-    "gatsby-transformer-sharp": "^5.15.0",
-    "hamburger-react": "^2.3.0",
-    "prop-types": "^15.7.2",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "react-helmet": "^6.1.0",
-    "react-icons": "^3.11.0",
-    "react-is": "^19.2.0",
-    "react-responsive": "^8.1.1",
-    "styled-components": "^5.2.1"
+    "@astrojs/sitemap": "3.7.5",
+    "@fontsource-variable/inter": "5.3.0",
+    "@fontsource-variable/jetbrains-mono": "5.3.0",
+    "astro": "7.4.12",
+    "sharp": "0.35.5"
   },
   "devDependencies": {
-    "eslint": "^8.2.0",
-    "eslint-config-airbnb": "19.0.4",
-    "eslint-plugin-import": "^2.25.3",
-    "eslint-plugin-jsx-a11y": "^6.5.1",
-    "eslint-plugin-react": "^7.28.0",
-    "eslint-plugin-react-hooks": "^4.3.0",
-    "gatsby-cli": "^5.15.0",
-    "prettier": "2.1.2"
-  },
-  "keywords": [
-    "gatsby"
-  ],
-  "license": "0BSD",
-  "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
-    "start": "npm run develop",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  },
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
-  },
-  "packageManager": "yarn@4.3.1+sha512.af78262d7d125afbfeed740602ace8c5e4405cd7f4735c08feb327286b2fdb2390fbca01589bfd1f50b1240548b74806767f5a063c94b67e431aabd0d86f7774"
+    "playwright": "^1.65.1"
+  }
 }

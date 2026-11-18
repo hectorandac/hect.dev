@@ -1,0 +1,24 @@
+---
+import Base from '../layouts/Base.astro';
+import logo from '../assets/logo.svg?raw';
+import { person } from '../data/profile';
+---
+<Base title="og" noindex>
+  <div class="og">
+    <span class="mark" set:html={logo} />
+    <div>
+      <p class="eyebrow">hect.dev</p>
+      <h1>{person.shortName}</h1>
+      <p class="role">{person.role}</p>
+      <p class="sub">Lead, AICU Gait Scanner · MSc CS, Kyungpook National University · {person.location}</p>
+    </div>
+  </div>
+</Base>
+<style>
+  :global(:root) { color-scheme: dark; --canvas:#08090a; --ink:#f7f8f8; --ink-subtle:#8a8f98; --accent:#ffc247; }
+  .og { width: 1200px; height: 630px; padding: 80px; display: flex; flex-direction: column; justify-content: space-between; background: radial-gradient(800px 400px at 90% 0%, #ffc24714, transparent), #08090a; }
+  .mark :global(svg) { width: 96px; height: 96px; }
+  h1 { font-size: 88px; margin: 12px 0 8px; }
+  .role { font-size: 34px; color: var(--accent); font-weight: 500; }
+  .sub { font-size: 24px; color: var(--ink-subtle); margin-top: 20px; }
+</style>

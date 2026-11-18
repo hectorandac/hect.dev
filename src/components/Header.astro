@@ -1,0 +1,22 @@
+---
+import logo from '../assets/logo.svg?raw';
+---
+<header class="wrap bar">
+  <a class="brand" href="/" aria-label="hect.dev home"><span set:html={logo} />hect.dev</a>
+  <nav aria-label="Sections">
+    <a href="/#experience">Experience</a>
+    <a href="/#research">Research</a>
+    <a href="/#projects">Projects</a>
+    <a href="/resume">Resume</a>
+  </nav>
+</header>
+
+<style>
+  .bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 20px; padding-bottom: 20px; }
+  .brand { display: inline-flex; align-items: center; gap: 10px; font: 600 15px/1 var(--sans); text-decoration: none; color: var(--ink); }
+  .brand :global(svg) { width: 28px; height: 28px; }
+  nav { display: flex; gap: clamp(12px, 3vw, 24px); }
+  nav a { font-size: 14px; color: var(--ink-subtle); text-decoration: none; }
+  nav a:hover { color: var(--ink); }
+  @media (max-width: 520px) { nav a:not(:last-child) { display: none; } }
+</style>
