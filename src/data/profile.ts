@@ -48,10 +48,12 @@ export const experience = [
   },
   {
     org: 'Pierpont Global',
+    url: 'https://ppg.hect.dev',
     role: 'Co-founder, lead software developer',
     period: 'Nov 2018 – Nov 2019',
     points: [
       'Co-founded an online car auction platform and led a team of four building the full stack (Rails, JavaScript, Java).',
+      'Rebuilt in 2026 as a live demo with ML pricing and photo-assisted listings.',
     ],
   },
 ];
@@ -81,6 +83,13 @@ export const research = [
 ];
 
 export const projects = [
+  {
+    name: 'Pierpont',
+    text: 'Live car auctions with ML pricing (LightGBM, conformal intervals), CLIP photo checks in int8 ONNX and weekly retraining behind a promotion gate.',
+    stack: ['Rails 8', 'Hotwire', 'LightGBM', 'ONNX', 'FastAPI', 'Helm'],
+    repo: 'https://github.com/pierpontglobal/pierpont',
+    demo: 'https://ppg.hect.dev',
+  },
   {
     name: 'finance-dashboard',
     text: 'Self-hosted finance app with an MCP endpoint, so an AI agent can manage it through task-level tools behind a token and a NetworkPolicy.',
