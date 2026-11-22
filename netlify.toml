@@ -29,3 +29,8 @@
   from = "/cv.pdf"
   to = "/resume.pdf"
   status = 301
+
+[[redirects]]
+  from = "/w/*"
+  to = "/writing/:splat"
+  status = 301
