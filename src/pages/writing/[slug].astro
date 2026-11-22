@@ -17,7 +17,7 @@ const src = assets[`../../assets/${w.image}`].default;
 const og = await getImage({ src, width: 1200, height: 630, fit: 'cover', format: 'jpg' });
 const date = new Date(w.date + 'T00:00:00Z').toLocaleDateString('en-US', { month: 'long', year: 'numeric', timeZone: 'UTC' });
 ---
-<Base title={`${w.title} · Hector Acosta`} description={w.text} image={og.src} imageAlt={w.title} ogType="article">
+<Base title={`${w.title} · Hector Acosta`} description={w.text} image={og.src} imageAlt={w.title} ogType="article" publishedTime={`${w.date}T00:00:00Z`}>
   <Header />
   <main id="main" class="wrap post">
     <p class="eyebrow">Writing · {date}</p>
