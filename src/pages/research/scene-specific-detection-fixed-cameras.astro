@@ -1,0 +1,49 @@
+---
+import { getImage } from 'astro:assets';
+import Base from '../../layouts/Base.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import card from '../../assets/research/jicce-2023.png';
+
+const doi = 'https://doi.org/10.56977/JICCE.2023.21.4.329';
+const portal = 'https://research.knu.ac.kr/en/publications/a-scene-specific-object-detection-system-utilizing-the-advantages/';
+const title = 'A Scene-Specific Object Detection System Utilizing the Advantages of Fixed-Location Cameras';
+const authors = ['Jin Ho Lee', 'In Su Kim', 'Hector Acosta', 'Hyeong Bok Kim', 'Seung Won Lee', 'Soon Ki Jung'];
+const summary = 'An edge AI detection system for long-term traffic monitoring that adapts a four-head YOLOv5 to each fixed camera, blocking heads by object scale and picking the best detector per scene.';
+const og = await getImage({ src: card, width: 1200, height: 630, format: 'png' });
+const ld = {
+  '@context': 'https://schema.org', '@type': 'ScholarlyArticle', headline: title, name: title,
+  author: authors.map((name) => ({ '@type': 'Person', name })), datePublished: '2023-12-31',
+  isPartOf: { '@type': 'PublicationIssue', issueNumber: '4', isPartOf: { '@type': 'PublicationVolume', volumeNumber: '21',
+    isPartOf: { '@type': 'Periodical', name: 'Journal of Information and Communication Convergence Engineering' } } },
+  pagination: '329-336', sameAs: doi, url: doi,
+};
+---
+<Base title={`${title} · Hector Acosta`} description={summary} image={og.src} imageAlt={title} ogType="article" publishedTime="2023-12-31T00:00:00Z">
+  <Header />
+  <main id="main" class="wrap post">
+    <p class="eyebrow">Research · JICCE 2023 · co-author</p>
+    <h1>{title}</h1>
+    <p class="authors">{authors.map((a, i) => <>{a === 'Hector Acosta' ? <strong>{a}</strong> : a}{i < authors.length - 1 ? ', ' : ''}</>)}</p>
+    <p class="muted cite">Journal of Information and Communication Convergence Engineering, Vol. 21, No. 4, pp. 329–336, December 2023. DOI 10.56977/JICCE.2023.21.4.329</p>
+    <h2>Abstract</h2>
+    <p>This paper introduces an edge AI-based scene-specific object detection system for long-term traffic management, focusing on analyzing congestion and movement via cameras. It aims to balance fast processing and accuracy in traffic flow data analysis using edge computing. We adapt the YOLOv5 model, with four heads, to a scene-specific model that utilizes the fixed camera’s scene-specific properties. This model selectively detects objects based on scale by blocking nodes, ensuring only objects of certain sizes are identified. A decision module then selects the most suitable object detector for each scene, enhancing inference speed without significant accuracy loss, as demonstrated in our experiments.</p>
+    <div class="cta">
+      <a class="btn primary" href={doi}>Read the paper (DOI) →</a>
+      <a class="btn" href={portal}>KNU research portal</a>
+      <a class="btn" href="/#research">More research</a>
+    </div>
+  </main>
+  <Footer />
+  <script type="application/ld+json" set:html={JSON.stringify(ld)} />
+</Base>
+
+<style>
+  .post { max-width: 760px; padding-top: clamp(32px, 6vw, 72px); padding-bottom: clamp(48px, 8vw, 96px); display: flex; flex-direction: column; gap: 14px; }
+  .post h1 { font-size: clamp(28px, 4.4vw, 40px); line-height: 1.15; letter-spacing: -0.02em; margin: 0; }
+  .post h2 { font-size: 18px; margin: 18px 0 0; }
+  .post p { margin: 0; }
+  .authors { font-size: 17px; }
+  .cite { font-size: 14px; }
+  .cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 10px; }
+</style>
