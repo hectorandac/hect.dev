@@ -62,7 +62,7 @@ export const research = [
   {
     title: 'Gated YOLO',
     kind: 'MSc thesis',
-    text: 'A dynamic gating mechanism inside YOLOv6 with scene-specific pruning, to cut compute for real-time detection on edge devices without losing accuracy.',
+    text: 'Learned channel gates that prune YOLOv6 for edge deployment: 12% fewer MACs at 1.3 mAP below the unpruned detector on VOC, with TensorRT FP16 and QAT INT8.',
     url: 'https://github.com/hectorandac/Gated-YOLO',
     linkLabel: 'Code',
   },
