@@ -5,6 +5,8 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import portrait from '../assets/portrait.jpg';
 import { person, experience, research, projects, writing, writingMore, skills, education } from '../data/profile';
+const assets = import.meta.glob<{ default: ImageMetadata }>('../assets/{logos,writing,projects}/*.{png,jpg,jpeg}', { eager: true });
+const img = (f: string) => assets[`../assets/${f}`].default;
 const fmt = (d: string) => new Date(d + 'T00:00:00Z').toLocaleDateString('en-US', { month: 'short', year: 'numeric', timeZone: 'UTC' });
 ---
 <Base>
@@ -43,7 +45,10 @@ const fmt = (d: string) => new Date(d + 'T00:00:00Z').toLocaleDateString('en-US'
                 <span class="mono muted">{job.period}</span>
               </div>
               <div class="job-body">
-                <h3>{job.url ? <a href={job.url}>{job.org}</a> : job.org}</h3>
+                <h3 class="org">
+                  {job.logo && <Image src={img(job.logo)} alt="" width={40} height={40} densities={[1, 2]} class="logo" />}
+                  {job.url ? <a href={job.url}>{job.org}</a> : job.org}
+                </h3>
                 <p class="job-role">{job.role}</p>
                 <ul>{job.points.map((p) => <li>{p}</li>)}</ul>
               </div>
@@ -81,7 +86,12 @@ const fmt = (d: string) => new Date(d + 'T00:00:00Z').toLocaleDateString('en-US'
         </div>
         <div class="grid">
           {projects.map((p) => (
-            <article class="card">
+            <article class="card project">
+              {p.image && (
+                <a href={p.demo ?? p.repo} class={`shot ${p.imageFit === 'contain' ? 'contain' : ''}`} tabindex="-1" aria-hidden="true">
+                  <Image src={img(p.image)} alt="" widths={[400, 640, 800]} sizes="(max-width: 760px) 92vw, 380px" />
+                </a>
+              )}
               <h3>{p.name}</h3>
               <p>{p.text}</p>
               <ul class="tags">{p.stack.map((s) => <li>{s}</li>)}</ul>
@@ -105,8 +115,11 @@ const fmt = (d: string) => new Date(d + 'T00:00:00Z').toLocaleDateString('en-US'
         <ul class="posts">
           {writing.map((w) => (
             <li>
-              <span class="mono muted">{fmt(w.date)}</span>
+              <a href={w.url} class="thumb" tabindex="-1" aria-hidden="true">
+                <Image src={img(w.image)} alt="" widths={[200, 400]} sizes="(max-width: 760px) 92vw, 200px" />
+              </a>
               <div>
+                <span class="mono muted date">{fmt(w.date)}</span>
                 <h3><a href={w.url}>{w.title}</a></h3>
                 <p class="muted">{w.text}</p>
                 <span class="source mono">{new URL(w.url).hostname}</span>
@@ -186,8 +199,20 @@ const fmt = (d: string) => new Date(d + 'T00:00:00Z').toLocaleDateString('en-US'
   .more, .links a { font-size: 14px; }
   .links { display: flex; gap: 16px; }
 
+  .org { display: flex; align-items: center; gap: 12px; }
+  .org :global(.logo) { width: 40px; height: 40px; border-radius: 9px; object-fit: cover; background: #fff; border: 1px solid var(--hairline); flex: none; }
+  .project { overflow: hidden; }
+  .shot { display: block; margin: -20px -20px 4px; aspect-ratio: 16 / 10; overflow: hidden; border-bottom: 1px solid var(--hairline); background: #fff; }
+  .shot :global(img) { width: 100%; height: 100%; object-fit: cover; object-position: top; transition: transform .3s ease; }
+  .shot.contain { background: #f4f4f5; }
+  .shot.contain :global(img) { object-fit: contain; object-position: center; }
+  .project:hover .shot :global(img) { transform: scale(1.02); }
+  .thumb { display: block; aspect-ratio: 1200 / 630; border-radius: 8px; overflow: hidden; border: 1px solid var(--hairline); }
+  .thumb :global(img) { width: 100%; height: 100%; object-fit: cover; object-position: left center; }
+  .date { display: block; font-size: 12px; margin-bottom: 4px; }
+
   .posts { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
-  .posts li { display: grid; grid-template-columns: 180px 1fr; gap: 24px; padding: 18px 0; border-top: 1px solid var(--hairline); }
+  .posts li { display: grid; grid-template-columns: 200px 1fr; gap: 24px; align-items: start; padding: 18px 0; border-top: 1px solid var(--hairline); }
   .posts li:first-child { border-top: 0; padding-top: 0; }
   .posts h3 { font-size: 16px; margin: 0 0 4px; }
   .posts h3 a { color: var(--ink); text-decoration: none; }
@@ -206,6 +231,6 @@ const fmt = (d: string) => new Date(d + 'T00:00:00Z').toLocaleDateString('en-US'
     .hero { grid-template-columns: 1fr; gap: 32px; }
     .portrait { width: min(60vw, 260px); order: -1; margin-left: 10px; }
     .job { grid-template-columns: 1fr; gap: 6px; }
-    .posts li { grid-template-columns: 1fr; gap: 4px; }
+    .posts li { grid-template-columns: 1fr; gap: 10px; }
   }
 </style>
