@@ -117,6 +117,71 @@ export const projects = [
   },
 ];
 
+export const writing = [
+  {
+    title: 'AI Gait Analysis: How a Phone Video Becomes Gait Measurements',
+    date: '2026-10-25',
+    text: 'Markerless vs marker-based capture, the five steps from video to gait measures, and what studies show about accuracy.',
+    url: 'https://gait.aicu.life/learn/ai-gait-analysis-how-markerless-works',
+  },
+  {
+    title: 'Is Gait Analysis From a Phone Accurate? How Validation Works',
+    date: '2026-10-23',
+    text: 'Reference systems, ICC, Bland–Altman limits of agreement and meaningful change, applied to published camera and phone tools.',
+    url: 'https://gait.aicu.life/learn/is-phone-gait-analysis-accurate-validation',
+  },
+  {
+    title: 'Gait Analysis Software Compared: Motion Capture, Walkways, Sensors and Video',
+    date: '2026-11-03',
+    text: 'The five kinds of gait analysis system, from optical motion capture to markerless video and phone apps, and what each measures.',
+    url: 'https://gait.aicu.life/learn/gait-analysis-software-compared',
+  },
+  {
+    title: 'Gait Parameters and Normal Values',
+    date: '2026-11-01',
+    text: 'The gait cycle, stance and swing, double support, cadence, step and stride length and symmetry, with normal values.',
+    url: 'https://gait.aicu.life/learn/gait-parameters-normal-values',
+  },
+  {
+    title: 'OSNet ReID in Python: Variants, ONNX Export and CPU Latency',
+    date: '2026-11-03',
+    text: 'Matching YOLO11 person crops with torchreid OSNet, exporting to ONNX and comparing four variants on CPU.',
+    url: 'https://blog.aicu.life/posts/osnet-reid-python-onnx-cpu-benchmark/',
+  },
+  {
+    title: 'Build an MCP Server in Python: YOLO11 as a Tool, Measured',
+    date: '2026-11-04',
+    text: 'YOLO11 detection exposed as an MCP tool over stdio, with protocol latency, cold start and token cost measured.',
+    url: 'https://blog.aicu.life/posts/mcp-server-python-yolo-object-detection-benchmark/',
+  },
+  {
+    title: 'Build an MCP Gateway in Python: Per-Agent Tool Filtering',
+    date: '2026-11-05',
+    text: 'A 143-line gateway with per-role tool allow-lists and an audit log: 57–69% fewer tool tokens for 0.6 ms per call.',
+    url: 'https://blog.aicu.life/posts/mcp-gateway-python-least-privilege-tool-filtering/',
+  },
+  {
+    title: 'Real-Time Object Detection in Flutter: libyuv + TFLite GPU',
+    date: '2025-06-02',
+    text: 'A person detector on every camera frame at 30 FPS: YUV to RGB in C++, a GPU to NNAPI to CPU fallback, and Metal on iOS.',
+    url: 'https://blog.aicu.life/posts/real-time-video-processing-with-flutter-native-c-and-tensorflow-lite/',
+  },
+  {
+    title: 'CT Hounsfield Units by Tissue, Measured with pydicom',
+    date: '2026-11-09',
+    text: 'HU values of eight tissues measured on a public chest CT, plus three DICOM traps that silently corrupt them.',
+    url: 'https://blog.aicu.life/posts/ct-hounsfield-units-pydicom-hands-on/',
+  },
+  {
+    title: 'What Diffusion Can Teach a Biomechanical Model',
+    date: '2026-08-10',
+    text: 'Using NVIDIA Kimodo motion diffusion to synthesize rare gait patterns, and why its free foot-contact labels matter more.',
+    url: 'https://blog.aicu.life/posts/what-diffusion-can-teach-a-biomechanical-model/',
+  },
+];
+
+export const writingMore = 'https://blog.aicu.life/author/hector/';
+
 export const skills = [
   { group: 'ML & CV', items: ['PyTorch', 'TensorFlow', 'YOLO', 'Pose estimation', 'OpenCV', 'Core ML', 'CUDA/C++'] },
   { group: 'Platforms', items: ['iOS', 'Android', 'Edge inference', 'Ollama', 'MCP'] },

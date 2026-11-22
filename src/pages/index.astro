@@ -4,7 +4,8 @@ import Base from '../layouts/Base.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import portrait from '../assets/portrait.jpg';
-import { person, experience, research, projects, skills, education } from '../data/profile';
+import { person, experience, research, projects, writing, writingMore, skills, education } from '../data/profile';
+const fmt = (d: string) => new Date(d + 'T00:00:00Z').toLocaleDateString('en-US', { month: 'short', year: 'numeric', timeZone: 'UTC' });
 ---
 <Base>
   <Header />
@@ -94,6 +95,29 @@ import { person, experience, research, projects, skills, education } from '../da
       </div>
     </section>
 
+    <section id="writing">
+      <div class="wrap">
+        <div class="section-head">
+          <p class="eyebrow">Writing</p>
+          <h2>Notes from the work</h2>
+          <p class="muted">Hands-on posts on gait analysis, computer vision and AI tooling, written for AICU.</p>
+        </div>
+        <ul class="posts">
+          {writing.map((w) => (
+            <li>
+              <span class="mono muted">{fmt(w.date)}</span>
+              <div>
+                <h3><a href={w.url}>{w.title}</a></h3>
+                <p class="muted">{w.text}</p>
+                <span class="source mono">{new URL(w.url).hostname}</span>
+              </div>
+            </li>
+          ))}
+        </ul>
+        <p class="all"><a href={writingMore}>All my posts on the AICU blog →</a></p>
+      </div>
+    </section>
+
     <section id="skills">
       <div class="wrap">
         <div class="section-head">
@@ -162,6 +186,16 @@ import { person, experience, research, projects, skills, education } from '../da
   .more, .links a { font-size: 14px; }
   .links { display: flex; gap: 16px; }
 
+  .posts { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+  .posts li { display: grid; grid-template-columns: 180px 1fr; gap: 24px; padding: 18px 0; border-top: 1px solid var(--hairline); }
+  .posts li:first-child { border-top: 0; padding-top: 0; }
+  .posts h3 { font-size: 16px; margin: 0 0 4px; }
+  .posts h3 a { color: var(--ink); text-decoration: none; }
+  .posts h3 a:hover { color: var(--accent); }
+  .posts p { margin: 0 0 4px; }
+  .source { font-size: 12px; color: var(--ink-subtle); }
+  .all { margin-top: 20px; font-size: 14px; }
+
   .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 24px; }
   .skills h3 { margin-bottom: 12px; font-size: 15px; }
   .edu { margin-top: 40px; display: flex; flex-direction: column; gap: 6px; }
@@ -172,5 +206,6 @@ import { person, experience, research, projects, skills, education } from '../da
     .hero { grid-template-columns: 1fr; gap: 32px; }
     .portrait { width: min(60vw, 260px); order: -1; margin-left: 10px; }
     .job { grid-template-columns: 1fr; gap: 6px; }
+    .posts li { grid-template-columns: 1fr; gap: 4px; }
   }
 </style>
