@@ -147,7 +147,7 @@ const fmt = (d: string) => new Date(d + 'T00:00:00Z').toLocaleDateString('en-US'
         </div>
         <div class="edu">
           {education.map((e) => (
-            <p><a href={e.url}>{e.school}</a> <span class="muted">· {e.degree} · {e.place}</span></p>
+            <p><a href={e.url}>{e.school}</a> <span class="muted">· {e.degree} · {e.place} · {e.years}</span></p>
           ))}
         </div>
       </div>

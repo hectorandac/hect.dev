@@ -48,7 +48,7 @@ const host = (u: string) => u.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/,
 
     <h2>Education</h2>
     {education.map((e) => (
-      <div class="entry-head"><span><strong>{e.school}</strong>, {e.degree}</span><span>{e.place}</span></div>
+      <div class="entry-head"><span><strong>{e.school}</strong>, {e.degree}</span><span>{e.place} · {e.years}</span></div>
     ))}
 
     <p class="screen-only dl"><a class="btn primary" href="/resume.pdf">Download PDF</a></p>

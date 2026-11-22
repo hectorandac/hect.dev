@@ -210,6 +210,6 @@ export const skills = [
 ];
 
 export const education = [
-  { school: 'Kyungpook National University', degree: 'MSc, Computer Science', place: 'Daegu, South Korea', url: 'https://www.knu.ac.kr' },
-  { school: 'INTEC', degree: 'Undergraduate studies', place: 'Santo Domingo, Dominican Republic', url: 'https://www.intec.edu.do' },
+  { school: 'Kyungpook National University', degree: 'MSc, Computer Science, Global Korea Scholarship (GKS)', place: 'Daegu, South Korea', years: '2024', url: 'https://www.knu.ac.kr' },
+  { school: 'INTEC', degree: 'Software Engineering (Ingeniero de Software)', place: 'Santo Domingo, Dominican Republic', years: '2015 – 2019', url: 'https://www.intec.edu.do' },
 ];
