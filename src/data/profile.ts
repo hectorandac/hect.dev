@@ -135,7 +135,14 @@ export const projects = [
   },
 ];
 
-export const writing = [
+export const writing: { title: string; date: string; text: string; url: string; image: string; draft?: boolean }[] = [
+  {
+    title: "I'm not a designer, so I ran an AI design council",
+    date: '2026-11-26',
+    text: "AI critics scored six rounds of real renders of my voice assistant's avatar in one evening. The ship call was mine.",
+    url: 'https://hect.dev/writing/ai-design-council-avatar',
+    image: 'writing/ai-design-council.jpg',
+  },
   {
     title: 'AI Gait Analysis: How a Phone Video Becomes Gait Measurements',
     date: '2026-10-25',

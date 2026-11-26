@@ -1,0 +1,3 @@
+- I'm not a designer. I set up AI critics and designers to judge real renders of my voice assistant's avatar: six rounds in one evening.
+- My note that her jaw looked like a "shading beard" became an automated check, and that check had a blind spot.
+- The critics never signed off on the jaw. I shipped anyway, because at her real size it didn't read as a beard to me.

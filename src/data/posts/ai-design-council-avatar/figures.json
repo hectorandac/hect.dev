@@ -1,0 +1,72 @@
+{
+ "_note": "Single source for every caption and alt text on the avatar council post. The page and drafts/avatar-council/tools/merge-draft.py (article.md) both read this file; the merge never writes it.",
+ "V1": {
+  "caption": "Left: my first version. The concept critic's first read: “a cloud of glass dice, not as someone.” Right: the round 6 face that shipped. Both are rendered by the app's own three.js code.",
+  "images": [
+   {"file": "v1-prototype.png", "tag": "First version", "alt": "First version: a translucent aqua and lavender ball of glass cubes with two dark eyes, a few cubes orbiting it, soft bloom."},
+   {"file": "r6-hero.png", "tag": "Round 6, shipped", "alt": "Round 6: a voxel girl with purple hair, a pale porcelain face, large dark eyes, pink blush and a wide smile."}
+  ]
+ },
+ "V2": {
+  "caption": "Round 1 to round 6, same camera. Scores under each are style · UX · concept, out of 10.",
+  "images": [
+   {"file": "round-1.png", "alt": "Round 1, scored 4, 4.5 and 3.5: a purple voxel ball with a pale face patch crossed by an amber grid of seams."},
+   {"file": "round-2.png", "alt": "Round 2, scored 5, 6.5 and 5: the amber grid mostly gone; the lower half of the face shades into lilac."},
+   {"file": "round-3.png", "alt": "Round 3, scored 6, 7 and 6: a pale face framed by purple hair, a small braid on one side and a lighter band under the mouth."},
+   {"file": "round-4.png", "alt": "Round 4, scored 7, 7.5 and 7: smoother hair cap and a rounder face with a simple smile."},
+   {"file": "round-5.png", "alt": "Round 5, scored 7, 7.5 and 7: similar to round 4, with cleaner hair edges and blush."},
+   {"file": "round-6.png", "alt": "Round 6, scored 7, 7.5 and 7.5: one head of hair with a side ponytail, large eyes, blush and a wide smile."}
+  ]
+ },
+ "V3": {
+  "caption": "Council scores per round, out of 10. The dashed line marks my feedback after round 3; the solid line marks round 4, when the designer became three lanes and the render workbench was rebuilt.",
+  "images": []
+ },
+ "V4": {
+  "caption": "The loop. Agents did the building, rendering and critiquing; I came in with feedback and made the ship call.",
+  "images": []
+ },
+ "V5": {
+  "caption": "The states page of the round 6 render sheet. The critics scored sheets like this, never a single flattering frame.",
+  "images": [
+   {"file": "state-idle.png", "label": "Idle", "alt": "Round 6, idle state: smiling, eyes open."},
+   {"file": "state-listening.png", "label": "Listening", "alt": "Round 6, listening state: leaning in, teal cubes rising."},
+   {"file": "state-thinking.png", "label": "Thinking", "alt": "Round 6, thinking state: eyes up, blue cubes above her head."},
+   {"file": "state-speaking.png", "label": "Speaking", "alt": "Round 6, speaking state: mouth open, warm glow."},
+   {"file": "state-sleeping.png", "label": "Sleeping", "alt": "Round 6, sleeping state: head tilted, eyes closed."},
+   {"file": "state-error.png", "label": "Error", "alt": "Round 6, error state: frowning, red accents."},
+   {"file": "state-offline.png", "label": "Offline", "alt": "Round 6, offline state: gray and desaturated, eyes closed."},
+   {"file": "state-unknown-voice.png", "label": "Unknown voice", "alt": "Round 6, unknown voice state: polite but reserved, narrow eyes, small mouth."}
+  ]
+ },
+ "V6": {
+  "caption": "The same box and scale cut from the front idle render, round 3 and round 6, in color (top) and grayscale (bottom). The outlined band under her mouth in round 3 is the “shading beard”. The gray band is easiest to see in the grayscale row.",
+  "images": [
+   {"file": "jaw-r3.png", "alt": "Round 3 lower face in color: a slightly grayer band across the mouth row, outlined, and lilac shading at the jaw corners."},
+   {"file": "jaw-r6.png", "alt": "Round 6 lower face in color: even warm skin from the cheeks down to the chin."},
+   {"file": "jaw-r3-grey.png", "alt": "Round 3 lower face in grayscale: the outlined band below the cheeks is visibly darker, like stubble."},
+   {"file": "jaw-r6-grey.png", "alt": "Round 6 lower face in grayscale: the skin below the mouth stays one flat light tone."}
+  ]
+ },
+ "V6b": {
+  "caption": "Round 6, idle. In the close-up, the hair cube under her chin and the lock tip at the jaw are real. At actual size I judged they don't read as stubble. The critics disagreed.",
+  "images": [
+   {"file": "jaw-r6-closeup.png", "head": "As the critics saw it", "alt": "Round 6 face in close-up. A small purple hair cube shows under the center of the chin, and a gray lock tip sits at her right jaw corner; both are circled."},
+   {"file": "jaw-r6-120.png", "head": "Actual size, 120 px, as on screen", "alt": "Round 6 jaw at actual size, 120 px, as shown on screen."}
+  ]
+ },
+ "V7": {
+  "caption": "Floating over a chat app, at her real size. The chat is a synthetic test background.",
+  "images": [
+   {"file": "overlay.png", "alt": "A phone screen with made-up chat bubbles over a purple-to-orange gradient, and Laura's small round 6 head floating in the lower right corner."}
+  ]
+ },
+ "V8": {
+  "caption": "The same idle phone frame from the WebView and from the native port. The third panel is the per-pixel difference of the first two, amplified 16 times. Mean difference on this frame: 0.15–0.17/255 per color channel.",
+  "images": [
+   {"file": "parity-webview.png", "tag": "WebView (three.js)", "alt": "Idle frame rendered by the three.js WebView."},
+   {"file": "parity-native.png", "tag": "Native (OpenGL ES 3)", "alt": "The same idle frame from the native OpenGL ES 3 port, visually identical."},
+   {"file": "parity-diff16.png", "tag": "Difference ×16", "alt": "Difference of the two panels, amplified 16 times: mostly black, with thin colored outlines along some cube edges."}
+  ]
+ }
+}

@@ -110,10 +110,10 @@ const fmt = (d: string) => new Date(d + 'T00:00:00Z').toLocaleDateString('en-US'
         <div class="section-head">
           <p class="eyebrow">Writing</p>
           <h2>Notes from the work</h2>
-          <p class="muted">Hands-on posts on gait analysis, computer vision and AI tooling, written for AICU.</p>
+          <p class="muted">Posts on computer vision, gait analysis and building with AI. The gait articles were written for AICU.</p>
         </div>
         <ul class="posts">
-          {writing.map((w) => (
+          {writing.filter((w) => !w.draft).map((w) => (
             <li>
               <a href={w.url} class="thumb" tabindex="-1" aria-hidden="true">
                 <Image src={img(w.image)} alt="" widths={[200, 400]} sizes="(max-width: 760px) 92vw, 200px" />
@@ -127,7 +127,7 @@ const fmt = (d: string) => new Date(d + 'T00:00:00Z').toLocaleDateString('en-US'
             </li>
           ))}
         </ul>
-        <p class="all"><a href={writingMore}>All my posts on the AICU blog →</a></p>
+        <p class="all"><a href={writingMore}>More gait and computer vision posts on the AICU blog →</a></p>
       </div>
     </section>
 
