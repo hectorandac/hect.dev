@@ -98,6 +98,7 @@ const fmt = (d: string) => new Date(d + 'T00:00:00Z').toLocaleDateString('en-US'
               <p class="links">
                 <a href={p.repo}>Source</a>
                 {p.demo && <a href={p.demo}>Live demo</a>}
+                {p.post && <a href={p.post}>{p.postLabel ?? 'Write-up'}</a>}
               </p>
             </article>
           ))}

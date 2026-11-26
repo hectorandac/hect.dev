@@ -5,5 +5,5 @@ export default defineConfig({
   site: 'https://hect.dev',
   trailingSlash: 'never',
   build: { format: 'file' },
-  integrations: [sitemap({ filter: (page) => !/\/(og|404)$/.test(page.replace(/\/$/, '')) })],
+  integrations: [sitemap({ lastmod: new Date(), filter: (page) => !/\/(og|404)$/.test(page.replace(/\/$/, '')) })],
 });

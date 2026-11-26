@@ -10,6 +10,8 @@ interface Props {
   imageAlt?: string;
   ogType?: string;
   publishedTime?: string;
+  socialTitle?: string;
+  extraLd?: object[];
 }
 
 const {
@@ -20,6 +22,8 @@ const {
   imageAlt,
   ogType = 'profile',
   publishedTime,
+  socialTitle,
+  extraLd = [],
 } = Astro.props;
 
 const path = Astro.url.pathname.replace(/\.html$/, '').replace(/\/index$/, '/');
@@ -37,7 +41,7 @@ const jsonLd = {
   worksFor: { '@type': 'Organization', name: experience[0].org, url: experience[0].url },
   alumniOf: education.map((e) => ({ '@type': 'CollegeOrUniversity', name: e.school, url: e.url })),
   address: { '@type': 'PostalAddress', addressLocality: 'Daegu', addressCountry: 'KR' },
-  knowsAbout: ['Computer vision', 'Edge AI', 'Object detection', 'Pose estimation', 'MLOps', 'Kubernetes'],
+  knowsAbout: ['Computer vision', 'Edge AI', 'Object detection', 'Pose estimation', 'MLOps', 'Kubernetes', 'Voice assistants', 'Local LLMs', 'AI agents', 'Speech recognition'],
   sameAs: Object.values(person.links),
 };
 ---
@@ -58,7 +62,7 @@ const jsonLd = {
 
     <meta property="og:type" content={ogType} />
     <meta property="og:site_name" content="hect.dev" />
-    <meta property="og:title" content={title} />
+    <meta property="og:title" content={socialTitle ?? title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImage} />
@@ -71,11 +75,11 @@ const jsonLd = {
     {ogType === 'profile' && <meta property="profile:first_name" content="Hector" />}
     {ogType === 'profile' && <meta property="profile:last_name" content="Acosta Pozo" />}
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
+    <meta name="twitter:title" content={socialTitle ?? title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
 
-    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    <script type="application/ld+json" set:html={JSON.stringify(extraLd.length ? [jsonLd, ...extraLd] : jsonLd)} />
   </head>
   <body>
     <a class="skip" href="#main">Skip to content</a>

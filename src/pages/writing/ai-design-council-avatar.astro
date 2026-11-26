@@ -70,8 +70,29 @@ const draft = !!entry.draft;
 const date = new Date(entry.date + 'T00:00:00Z').toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
 const [h1, h2] = figs.V1.images, [p1, p2, p3] = figs.V8.images, [j3, j6, j3g, j6g] = figs.V6.images, [jc, j120] = figs.V6b.images;
 const repo = 'https://github.com/hectorandac/laura-voice';
+const url = 'https://hect.dev/writing/ai-design-council-avatar';
+const seoTitle = 'AI Design Council: LLM-as-Judge Agents Built My Avatar';
+const seoDescription = 'Not a designer, I ran a multi-agent AI design council (LLM-as-judge critics + coding agents) to build a voxel avatar for my self-hosted voice assistant.';
+const ld = [
+  {
+    '@context': 'https://schema.org', '@type': 'BlogPosting', headline: meta.title, description: seoDescription,
+    image: new URL(og.src, Astro.site).href, datePublished: `${entry.date}T00:00:00Z`, dateModified: new Date().toISOString(),
+    mainEntityOfPage: url, url, inLanguage: 'en',
+    author: { '@type': 'Person', name: 'Hector Andres Acosta Pozo', url: 'https://hect.dev' },
+    keywords: ['AI agents', 'multi-agent', 'LLM-as-judge', 'AI design', 'three.js', 'voxel avatar', 'voice assistant', 'self-hosted', 'local LLM', 'evaluation'],
+    isBasedOn: repo,
+  },
+  {
+    '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://hect.dev/' },
+      { '@type': 'ListItem', position: 2, name: 'Writing', item: 'https://hect.dev/#writing' },
+      { '@type': 'ListItem', position: 3, name: meta.title, item: url },
+    ],
+  },
+];
 ---
-<Base title={meta.ogTitle || `${meta.title} · Hector Acosta`} description={meta.description} image={og.src} imageAlt="Laura's first prototype avatar next to the round 6 face" ogType="article" publishedTime={`${entry.date}T00:00:00Z`} noindex={draft}>
+<Base title={seoTitle} socialTitle={meta.ogTitle} extraLd={ld} description={seoDescription} image={og.src} imageAlt="Laura's first prototype avatar next to the round 6 face" ogType="article" publishedTime={`${entry.date}T00:00:00Z`} noindex={draft}>
   <Header />
   <main id="main" class="wrap article">
     <header class="head">

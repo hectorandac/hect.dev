@@ -94,6 +94,8 @@ export const projects = [
     resumeText: 'Bilingual voice assistant: streaming ASR, speaker verification and a 9B LLM in ~6 GB of GPU, ~1.1 s to first audio, distilled 16M-param CPU voice.',
     stack: ['PyTorch', 'NeMo', 'llama.cpp', 'ONNX Runtime', 'Kotlin', 'OpenGL ES', 'Helm'],
     repo: 'https://github.com/hectorandac/laura-voice',
+    post: '/writing/ai-design-council-avatar',
+    postLabel: 'How I designed her with AI agents',
   },
   {
     name: 'Pierpont',
