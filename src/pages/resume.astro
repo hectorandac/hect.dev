@@ -38,7 +38,7 @@ const host = (u: string) => u.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/,
 
     <h2>Selected projects</h2>
     <ul class="flat">
-      {projects.slice(0, 3).map((p) => <li><strong>{p.name}</strong>. {p.text} <a href={p.repo}>{host(p.repo)}</a></li>)}
+      {projects.slice(0, 3).map((p) => <li><strong>{p.name}</strong>. {p.resumeText ?? p.text} <a href={p.repo}>{host(p.repo)}</a></li>)}
     </ul>
 
     <h2>Skills</h2>

@@ -91,6 +91,7 @@ export const projects = [
     name: 'Laura',
     image: 'projects/laura.png',
     text: 'Private bilingual voice assistant on my k3s cluster: streaming ASR, speaker verification and a local 9B LLM that hands real work to my agent, together in about 6 GB of a laptop GPU (6.3 GB peak). About 1.1 s to first audio, a distilled 16M-parameter voice that runs on the CPU, Android phone, watch and overlay clients.',
+    resumeText: 'Bilingual voice assistant: streaming ASR, speaker verification and a 9B LLM in ~6 GB of GPU, ~1.1 s to first audio, distilled 16M-param CPU voice.',
     stack: ['PyTorch', 'NeMo', 'llama.cpp', 'ONNX Runtime', 'Kotlin', 'OpenGL ES', 'Helm'],
     repo: 'https://github.com/hectorandac/laura-voice',
   },
